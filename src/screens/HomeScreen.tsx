@@ -1,8 +1,11 @@
 import React from 'react'
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { MoviePoster } from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
 
 export const HomeScreen = () => {
+    const {top} = useSafeAreaInsets()
     const {moviesNow, isLoading} = useMovies()
 
     if(isLoading) {
@@ -14,8 +17,8 @@ export const HomeScreen = () => {
     }
 
     return (
-        <View>
-            <Text>{moviesNow[0].title}</Text>
+        <View style={{marginTop: top + 20}}>
+            <MoviePoster poster={moviesNow[5].poster_path} />
         </View>
     )
 }
