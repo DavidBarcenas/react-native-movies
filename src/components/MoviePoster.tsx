@@ -8,7 +8,7 @@ interface Props {
 
 export const MoviePoster = ({poster}: Props) => {
     const uri = `https://image.tmdb.org/t/p/w500${poster}`
-    
+
     return (
         <View style={styles.posterWrap}>
             <Image source={{uri}} style={styles.posterImage} />
@@ -28,8 +28,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.58,
         shadowRadius: 16.00,
-
-        elevation: 24,
+        elevation: 15,
     },
     posterImage: {
         flex: 1,

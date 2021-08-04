@@ -1,8 +1,17 @@
 import React from 'react'
-import { ActivityIndicator, View } from 'react-native';
+import Carousel from 'react-native-snap-carousel';
+import { ActivityIndicator, Dimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MoviePoster } from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
+import { Movie } from '../interfaces/movieInterface';
+
+interface CarouselItemProps {
+    item: Movie; 
+    index: number;
+}
+
+const {width} = Dimensions.get('window');
 
 export const HomeScreen = () => {
     const {top} = useSafeAreaInsets()
@@ -18,7 +27,18 @@ export const HomeScreen = () => {
 
     return (
         <View style={{marginTop: top + 20}}>
-            <MoviePoster poster={moviesNow[5].poster_path} />
+            <View style={{height: 420}}>
+                <Carousel
+                    data={moviesNow}
+                    renderItem={(carouselItem)}
+                    sliderWidth={width}
+                    itemWidth={280}
+                />
+            </View>
         </View>
     )
+}
+
+const carouselItem = ({item}: CarouselItemProps) => {
+    return <MoviePoster poster={item.poster_path} />
 }
