@@ -13,7 +13,7 @@ const {width} = Dimensions.get('window');
 
 export const HomeScreen = () => {
     const {top} = useSafeAreaInsets()
-    const {moviesNow, isLoading} = useMovies()
+    const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies()
 
     if(isLoading) { return <Spinner /> }
     
@@ -22,14 +22,15 @@ export const HomeScreen = () => {
             <View style={{marginTop: top + 20}}>
                 <View style={{height: 440}}>
                     <Carousel
-                        data={moviesNow}
+                        data={nowPlaying}
                         renderItem={carouselItem}
                         sliderWidth={width}
                         itemWidth={280}
                     />
                 </View>
-                <HorizontalSlider movies={moviesNow} title='Popular Movies' />
-                <HorizontalSlider movies={moviesNow} title='Comming Soon' />
+                <HorizontalSlider movies={popular} title='Populares' />
+                <HorizontalSlider movies={topRated} title='Mejor valoradas' />
+                <HorizontalSlider movies={upcoming} title='Próximamente' />
             </View>
         </ScrollView>
     )

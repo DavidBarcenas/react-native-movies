@@ -1,5 +1,5 @@
 export interface MovieResponse {
-    dates:         Dates;
+    dates?:        Dates;
     page:          number;
     results:       Movie[];
     total_pages:   number;
@@ -32,4 +32,11 @@ export enum OriginalLanguage {
     En = "en",
     Es = "es",
     Ja = "ja",
+}
+
+export interface MovieState {
+    nowPlaying: Movie[];
+    popular:    Movie[];
+    topRated:   Movie[];
+    upcoming:   Movie[];
 }
