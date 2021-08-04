@@ -3,14 +3,22 @@ import { StyleSheet } from 'react-native';
 import { Image, View } from 'react-native';
 
 interface Props {
-    poster: string;
+    poster:  string;
+    height?: number;
+    width?:  number;
+    marginHorizontal?: number;
 }
 
-export const MoviePoster = ({poster}: Props) => {
+export const MoviePoster = ({
+    poster, 
+    height = 400, 
+    width = 280, 
+    marginHorizontal = 0
+}: Props) => {
     const uri = `https://image.tmdb.org/t/p/w500${poster}`
 
     return (
-        <View style={styles.posterWrap}>
+        <View style={{...styles.posterWrap, width, height, marginHorizontal}}>
             <Image source={{uri}} style={styles.posterImage} />
         </View>
     )
@@ -18,8 +26,6 @@ export const MoviePoster = ({poster}: Props) => {
 
 const styles = StyleSheet.create({
     posterWrap: {
-        width: 280, 
-        height: 400,
         borderRadius: 18,
         shadowColor: "#000",
         shadowOffset: {
@@ -28,7 +34,8 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.58,
         shadowRadius: 16.00,
-        elevation: 15,
+        elevation: 10,
+        marginBottom: 15
     },
     posterImage: {
         flex: 1,
