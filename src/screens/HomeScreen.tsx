@@ -1,12 +1,13 @@
 import React from 'react'
 import Carousel from 'react-native-snap-carousel';
-import { ActivityIndicator, Dimensions, View, ScrollView } from 'react-native';
+import { Dimensions, View, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useMovies } from '../hooks/useMovies';
 import { MoviePoster } from '../components/MoviePoster';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import { RenderItem } from '../interfaces/sliderInterface';
+import { Spinner } from '../components/Spinner';
 
 const {width} = Dimensions.get('window');
 
@@ -14,14 +15,8 @@ export const HomeScreen = () => {
     const {top} = useSafeAreaInsets()
     const {moviesNow, isLoading} = useMovies()
 
-    if(isLoading) {
-        return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <ActivityIndicator color="purple" size={40} />
-            </View>
-        )
-    }
-
+    if(isLoading) { return <Spinner /> }
+    
     return (
         <ScrollView>
             <View style={{marginTop: top + 20}}>
