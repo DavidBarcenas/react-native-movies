@@ -26,6 +26,7 @@ export const MoviePoster = ({
 
 const styles = StyleSheet.create({
     posterWrap: {
+        backgroundColor: '#fff',
         borderRadius: 18,
         shadowColor: "#000",
         shadowOffset: {
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.58,
         shadowRadius: 16.00,
         elevation: 10,
-        marginBottom: 15
+        marginBottom: 10
     },
     posterImage: {
         flex: 1,

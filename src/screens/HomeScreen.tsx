@@ -1,16 +1,12 @@
 import React from 'react'
 import Carousel from 'react-native-snap-carousel';
-import { ActivityIndicator, Dimensions, View, Text, FlatList, ScrollView } from 'react-native';
+import { ActivityIndicator, Dimensions, View, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { MoviePoster } from '../components/MoviePoster';
-import { useMovies } from '../hooks/useMovies';
-import { Movie } from '../interfaces/movieInterface';
-import { HorizontalSlider } from '../components/HorizontalSlider';
 
-interface CarouselItemProps {
-    item:    Movie; 
-    index:   number;
-}
+import { useMovies } from '../hooks/useMovies';
+import { MoviePoster } from '../components/MoviePoster';
+import { HorizontalSlider } from '../components/HorizontalSlider';
+import { RenderItem } from '../interfaces/sliderInterface';
 
 const {width} = Dimensions.get('window');
 
@@ -29,7 +25,7 @@ export const HomeScreen = () => {
     return (
         <ScrollView>
             <View style={{marginTop: top + 20}}>
-                <View style={{height: 420}}>
+                <View style={{height: 440}}>
                     <Carousel
                         data={moviesNow}
                         renderItem={carouselItem}
@@ -37,13 +33,13 @@ export const HomeScreen = () => {
                         itemWidth={280}
                     />
                 </View>
-                <HorizontalSlider movies={moviesNow} title='Popular' />
-                <HorizontalSlider movies={moviesNow} title='Future' />
+                <HorizontalSlider movies={moviesNow} title='Popular Movies' />
+                <HorizontalSlider movies={moviesNow} title='Comming Soon' />
             </View>
         </ScrollView>
     )
 }
 
-const carouselItem = ({item}: CarouselItemProps) => {
+const carouselItem = ({item}: RenderItem) => {
     return <MoviePoster poster={item.poster_path} />
 }
