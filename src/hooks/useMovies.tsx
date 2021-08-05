@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import movieAPI from "../api/movieAPI"
-import { MovieResponse, Movie, MovieState } from '../interfaces/movieInterface';
+import { MovieResponse, MovieState } from '../interfaces/movieInterface';
 
 export const useMovies = () => {
     const [isLoading, setIsLoading] = useState(true)
