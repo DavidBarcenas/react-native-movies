@@ -1,4 +1,4 @@
-export interface CastResponse {
+export interface CreditResponse {
     id:   number;
     cast: Cast[];
     crew: Cast[];

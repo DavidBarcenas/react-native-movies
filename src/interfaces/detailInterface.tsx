@@ -1,3 +1,11 @@
+import { Cast } from "./creditsInterface";
+
+export interface MovieDetailState {
+    isLoading: boolean;
+    details?:   Detail;
+    cast:      Cast[];
+}
+
 export interface Detail {
     adult:                 boolean;
     backdrop_path:         string;
