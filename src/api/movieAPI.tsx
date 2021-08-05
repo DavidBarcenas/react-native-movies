@@ -1,6 +1,8 @@
 import axios from 'axios';
 import {API_KEY} from 'react-native-dotenv'
 
+export const movieImage = 'https://image.tmdb.org/t/p/w500'
+
 const movieAPI = axios.create({
     baseURL: 'https://api.themoviedb.org/3/movie',
     params: {
@@ -8,5 +10,6 @@ const movieAPI = axios.create({
         language: 'es-MX'
     }
 })
+
 
 export default movieAPI
