@@ -11,17 +11,12 @@ interface Props {
     marginHorizontal?: number;
 }
 
-export const MoviePoster = ({
-    movie, 
-    height = 400, 
-    width = 280, 
-    marginHorizontal = 0,
-}: Props) => {
-    const navigation = useNavigation()
+export const MoviePoster = ({movie, height = 400, width = 280, marginHorizontal = 0}: Props) => {
+    const {navigate} = useNavigation()
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
 
     return (
-        <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Detail', movie)}>
+        <TouchableOpacity activeOpacity={0.8} onPress={() => navigate('Detail', movie)}>
             <View style={{...styles.posterWrap, width, height, marginHorizontal}}>
                 <Image source={{uri}} style={styles.posterImage} />
             </View>

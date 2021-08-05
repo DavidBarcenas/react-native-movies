@@ -10,10 +10,8 @@ const height = Dimensions.get('screen').height
 
 export const DetailScreen = ({route, navigation}: Props) => {
     const movie = route.params
-    const {state} = useMovieDetail(movie.id)
+    const {isLoading, cast, details} = useMovieDetail(movie.id)
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-
-    console.log(state)
 
     return (
         <View>

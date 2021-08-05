@@ -1,24 +1,41 @@
 import { useEffect, useState } from 'react';
 import movieAPI from '../api/movieAPI';
+import { Cast, CastResponse } from '../interfaces/castInterface';
+import { Detail } from '../interfaces/detailInterface';
 
 interface MovieDetails {
     isLoading: boolean;
-    cast: any;
-    details: any
+    details:   Detail | null;
+    cast:      Cast[];
 }
 
 export const useMovieDetail = (movieID: number) => {
-    const [state, setState] = useState<MovieDetails>()    
-
+    const [movie, setMovies] = useState<MovieDetails>({
+        isLoading: false,
+        details: null,
+        cast: [],
+    })
+    
+    
     const getMovieDetails = async () => {
-        await movieAPI.get<any>(`/${movieID}`)
-            .then(resp => setState(resp.data.overview))
+        const details = await movieAPI.get<Detail>(`/${movieID}`)
+        const cast    = await movieAPI.get<CastResponse>(`/${movieID}/credits`)
+
+        await Promise.all([details, cast])
+            .then(resp => {
+                setMovies({
+                    ...movie,
+                    details: resp[0].data,
+                    cast: resp[1].data.cast,
+                })
+            })
             .catch(console.error)
+            .finally(() => setMovies({...movie, isLoading: false}))
     }
 
     useEffect(() => {
         getMovieDetails()
     }, [])
 
-    return {state}
+    return {...movie}
 }
