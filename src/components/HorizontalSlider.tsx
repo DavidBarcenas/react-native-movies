@@ -22,7 +22,7 @@ const carouselItem = ({item}: RenderItem) => {
     return (
         <View>
             <MoviePoster 
-                poster={item.poster_path} 
+                movie={item} 
                 marginHorizontal={7} 
                 width={140} 
                 height={200} 

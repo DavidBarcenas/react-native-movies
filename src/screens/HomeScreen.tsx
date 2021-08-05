@@ -37,5 +37,5 @@ export const HomeScreen = () => {
 }
 
 const carouselItem = ({item}: RenderItem) => {
-    return <MoviePoster poster={item.poster_path} />
+    return <MoviePoster movie={item} />
 }
