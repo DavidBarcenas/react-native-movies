@@ -4,17 +4,26 @@ import { Dimensions, View, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { RenderItem } from '../interfaces/sliderInterface';
+import { movieImage } from '../api/movieAPI';
 import { useMovies } from '../hooks/useMovies';
 import { Spinner } from '../components/Spinner';
 import { MoviePoster } from '../components/MoviePoster';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import { GradientBackground } from '../components/GradientBackground';
+import { getImageColors } from '../helpers/getColors';
 
 const {width} = Dimensions.get('window');
 
 export const HomeScreen = () => {
     const {top} = useSafeAreaInsets()
     const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies()
+
+    const getPosterColors = async (index: number) => {
+        const urlImage = `${movieImage}${nowPlaying[index].poster_path}` 
+        const [primary, secondary] = await getImageColors(urlImage)
+
+        console.log(primary, secondary)
+    }
 
     if(isLoading) { return <Spinner /> }
     
@@ -28,6 +37,7 @@ export const HomeScreen = () => {
                             renderItem={carouselItem}
                             sliderWidth={width}
                             itemWidth={280}
+                            onSnapToItem={(index) => getPosterColors(index)}
                         />
                     </View>
                     <HorizontalSlider movies={popular} title='Populares' />
