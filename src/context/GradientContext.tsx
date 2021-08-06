@@ -21,8 +21,8 @@ export const GradientProvider = ({children}: any) => {
     })
 
     const [colors, setColors] = useState<ImageColors>({
-        primary: 'transparent',
-        secondary: 'transparent'
+        primary: 'red',
+        secondary: 'blue'
     })
 
     const setImageColors = (colors: ImageColors) => {

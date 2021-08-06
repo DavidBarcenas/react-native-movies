@@ -9,7 +9,7 @@ export const getImageColors = async (uri: string) => {
 
     if (colors.platform === 'android') {
         primary   = colors.dominant
-        secondary = colors.average
+        secondary = colors.darkVibrant
         secondary = colors.lightVibrant
     } else {
         primary   = colors.primary
