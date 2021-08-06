@@ -5,17 +5,15 @@ export const getImageColors = async (uri: string) => {
         fallback: '#228B22'
     })
 
-    let primary, secondary, tertiary;
+    let primary, secondary;
 
     if (colors.platform === 'android') {
         primary   = colors.dominant
-        secondary = colors.darkVibrant
-        secondary = colors.lightVibrant
+        secondary = colors.average
     } else {
         primary   = colors.primary
         secondary = colors.secondary
-        secondary = colors.quality
     }
 
-    return [primary, secondary, tertiary]
+    return [primary, secondary]
 }
