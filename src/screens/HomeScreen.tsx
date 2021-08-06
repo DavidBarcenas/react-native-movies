@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useMemo } from 'react'
 import Carousel from 'react-native-snap-carousel';
 import { Dimensions, View, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -17,8 +17,9 @@ const {width} = Dimensions.get('window');
 
 export const HomeScreen = () => {
     const {setImageColors} = useContext(GradientContext)
-    const {top} = useSafeAreaInsets()
     const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies()
+    const {top} = useSafeAreaInsets()
+    const memoizedItem = useMemo(() => carouselItem, [nowPlaying]);
 
     const getPosterColors = async (index: number) => {
         const urlImage = `${movieImage}${nowPlaying[index].poster_path}` 
@@ -41,7 +42,7 @@ export const HomeScreen = () => {
                 <View style={{height: 440,paddingTop: top + 20}}>
                     <Carousel
                         data={nowPlaying}
-                        renderItem={carouselItem}
+                        renderItem={memoizedItem}
                         sliderWidth={width}
                         itemWidth={240}
                         onSnapToItem={(index) => getPosterColors(index)}
