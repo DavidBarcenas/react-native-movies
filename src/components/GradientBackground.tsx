@@ -9,12 +9,12 @@ interface Props {
 }
 
 export const GradientBackground = ({children}: Props) => {
-    const {prevColors, colors, setPrevImageColors} = useContext(GradientContext)
+    const {nextColors, colors, setNextColors} = useContext(GradientContext)
     const {opacity, fadeIn, fadeOut} = useFade()
 
     useEffect(() => {
         fadeIn(() => {
-            setPrevImageColors(colors)
+            setNextColors(colors)
             fadeOut()
         })
     }, [colors])
@@ -22,7 +22,7 @@ export const GradientBackground = ({children}: Props) => {
     return (
         <View style={{flex: 1}}>
             <LinearGradient 
-                colors={[prevColors.primary, prevColors.secondary, '#fff']}
+                colors={[nextColors.primary, nextColors.secondary, '#fff']}
                 style={{...StyleSheet.absoluteFillObject}}
                 start={{x:0.1, y: 0.1}}
                 end={{x:0.1, y: 1}}

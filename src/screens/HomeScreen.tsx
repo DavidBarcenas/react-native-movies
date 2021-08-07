@@ -16,7 +16,7 @@ import { GradientContext } from '../context/GradientContext';
 const {width} = Dimensions.get('window');
 
 export const HomeScreen = () => {
-    const {setImageColors} = useContext(GradientContext)
+    const {setColors} = useContext(GradientContext)
     const {nowPlaying, popular, topRated, upcoming, isLoading} = useMovies()
     const {top} = useSafeAreaInsets()
     const memoizedItem = useMemo(() => carouselItem, [nowPlaying]);
@@ -25,7 +25,7 @@ export const HomeScreen = () => {
         const urlImage = `${movieImage}${nowPlaying[index].poster_path}` 
         const [primary = '#fff', secondary = '#222'] = await getImageColors(urlImage)
 
-        setImageColors({primary, secondary})
+        setColors({primary, secondary})
     }
 
     useEffect(() => {
