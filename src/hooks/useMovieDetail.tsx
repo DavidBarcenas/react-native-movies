@@ -22,8 +22,12 @@ export const useMovieDetail = (movieID: number) => {
                     cast: resp[1].data.cast,
                 })
             })
-            .catch(console.error)
-            .finally(() => setMovies({...movie, isLoading: false}))
+            .catch(() => {
+                setMovies({
+                    ...movie,
+                    isLoading: false,
+                })
+            })
     }
 
     useEffect(() => {

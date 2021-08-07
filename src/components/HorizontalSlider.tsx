@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     sliderTitle: {
-        color: themeColors.average,
+        color: themeColors.white,
         fontSize: 20, 
         fontWeight: 'bold', 
         marginBottom: 10, 
         paddingLeft: 10
     },
     sliderItemTitle: {
-        color: themeColors.average,
+        color: themeColors.white,
         marginHorizontal: 10, 
         fontWeight: 'bold',
         textAlign: 'center',
