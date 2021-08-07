@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Movie } from '../interfaces/movieInterface';
 import { movieImage } from '../api/movieAPI';
-import { themeColors } from '../theme/colors';
+import { themeColors } from '../theme/global';
 
 interface Props {
     movie:   Movie;

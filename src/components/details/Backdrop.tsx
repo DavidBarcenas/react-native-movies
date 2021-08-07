@@ -4,7 +4,7 @@ import { RootStackParams } from '../../navigation/Navigation';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/Ionicons';
-import { themeColors } from '../../theme/colors';
+import { themeColors } from '../../theme/global';
 
 interface BackDropProps {
     navigation: StackNavigationProp<RootStackParams, "Detail">

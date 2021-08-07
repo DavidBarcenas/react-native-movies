@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../screens/HomeScreen';
 import { DetailScreen } from '../screens/DetailScreen';
 import { Movie } from '../interfaces/movieInterface';
-import { themeColors } from '../theme/colors';
+import { themeColors } from '../theme/global';
 
 export type RootStackParams = {
   Home:   undefined;

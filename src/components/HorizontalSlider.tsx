@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { FlatList, Text, View, StyleSheet } from 'react-native';
 import { HorizontalSliderProps, RenderItem } from '../interfaces/sliderInterface';
 import { MoviePoster } from './MoviePoster';
-import { themeColors } from '../theme/colors';
+import { themeColors } from '../theme/global';
 
 export const HorizontalSlider = ({title, movies}: HorizontalSliderProps) => {
     const memoizedItem = useMemo(() => sliderItem, [movies]);

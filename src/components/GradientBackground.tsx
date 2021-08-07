@@ -3,7 +3,7 @@ import { Animated, StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { GradientContext } from '../context/GradientContext';
 import { useFade } from '../hooks/useFade';
-import { themeColors } from '../theme/colors';
+import { themeColors } from '../theme/global';
 
 interface Props {
     children: JSX.Element | JSX.Element[]
