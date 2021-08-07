@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../screens/HomeScreen';
 import { DetailScreen } from '../screens/DetailScreen';
 import { Movie } from '../interfaces/movieInterface';
-import { colors } from '../theme/colors';
+import { themeColors } from '../theme/colors';
 
 export type RootStackParams = {
   Home:   undefined;
@@ -17,7 +17,7 @@ export const Navigation = () => {
     <Stack.Navigator screenOptions={{
       headerShown: false,
       cardStyle: {
-        backgroundColor: colors.dominant,
+        backgroundColor: themeColors.dominant,
       }
     }}>
       <Stack.Screen name="Home" component={HomeScreen} />

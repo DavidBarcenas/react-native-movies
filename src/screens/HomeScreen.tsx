@@ -23,7 +23,7 @@ export const HomeScreen = () => {
 
     const getPosterColors = async (index: number) => {
         const urlImage = `${movieImage}${nowPlaying[index].poster_path}` 
-        const [primary = '#fff', secondary = '#222'] = await getImageColors(urlImage)
+        const [primary = '#222', secondary = '#222'] = await getImageColors(urlImage)
 
         setColors({primary, secondary})
     }
@@ -39,7 +39,7 @@ export const HomeScreen = () => {
     return (
         <ScrollView>
             <GradientBackground>
-                <View style={{height: 440,paddingTop: top + 20}}>
+                <View style={{height: 413,paddingTop: top + 20}}>
                     <Carousel
                         data={nowPlaying}
                         renderItem={memoizedItem}
