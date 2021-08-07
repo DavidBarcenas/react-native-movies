@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Text, View, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { Button, Text, View, Image, StyleSheet, Dimensions, TouchableOpacity, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams, Navigation } from '../navigation/Navigation';
@@ -8,6 +8,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import { movieImage } from '../api/movieAPI';
 import { Backdrop } from '../components/details/Backdrop';
 import { Header } from '../components/details/Header';
+import { themeColors } from '../theme/global';
+import { Spinner } from '../components/Spinner';
+import { CastSlider } from '../components/details/CastSlider';
 
 interface Props extends StackScreenProps<RootStackParams, 'Detail'> {}
 
@@ -34,6 +37,16 @@ export const DetailScreen = ({route, navigation}: Props) => {
                     title={movie.title}
                     width={width}
                 />
+                <Text style={styles.title}>Sinopsis</Text>
+                <Text style={styles.synopsis}>{movie.overview}</Text>
+
+                {
+                    isLoading ? <Spinner /> :
+                    <>
+                        <Text style={styles.title}>Actores</Text>
+                        <CastSlider cast={cast} />
+                    </>
+                }
             </View>
         </>
     )
@@ -41,6 +54,16 @@ export const DetailScreen = ({route, navigation}: Props) => {
 
 const styles = StyleSheet.create({
     wrap: {
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+    },
+    title: {
+        color: themeColors.white,
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        marginBottom: 15
+    },
+    synopsis: {
+        color: themeColors.white,
+        marginBottom: 30
     }
 })
