@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Text, View, Image, StyleSheet, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams } from '../navigation/Navigation';
 import { useMovieDetail } from '../hooks/useMovieDetail';
@@ -26,6 +27,7 @@ export const DetailScreen = ({route, navigation}: Props) => {
                     colors={["transparent", "black"]} 
                     locations={[0.4, 1.2]} 
                     style={styles.linearGradient} />
+                <Icon name="rocket" size={30} color="#fff" style={{ position: 'absolute', top: 0, left: 0}}/>
             </View>
             <View style={styles.detailWrap}>
                 <View style={styles.detailHeader}>

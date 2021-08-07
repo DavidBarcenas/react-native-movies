@@ -22,7 +22,8 @@
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.5.0",
-    "react-native-snap-carousel": "^3.9.1"
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-vector-icons": "^8.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -32,6 +33,7 @@
     "@types/react-native": "^0.64.5",
     "@types/react-native-dotenv": "^0.2.0",
     "@types/react-native-snap-carousel": "^3.8.4",
+    "@types/react-native-vector-icons": "^6.4.8",
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^26.6.3",
     "eslint": "^7.14.0",
