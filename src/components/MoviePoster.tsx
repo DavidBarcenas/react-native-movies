@@ -4,21 +4,21 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Movie } from '../interfaces/movieInterface';
 import { movieImage } from '../api/movieAPI';
+import { themeColors } from '../theme/colors';
 
 interface Props {
     movie:   Movie;
     height?: number;
     width?:  number;
-    marginHorizontal?: number;
 }
 
-export const MoviePoster = ({movie, height = 400, width = 280, marginHorizontal = 0}: Props) => {
+export const MoviePoster = ({movie, height = 400, width = 280}: Props) => {
     const {navigate} = useNavigation()
     const uri = `${movieImage}${movie.poster_path}`
 
     return (
         <TouchableOpacity activeOpacity={0.8} onPress={() => navigate('Detail', movie)}>
-            <View style={{...styles.posterWrap, width, height, marginHorizontal}}>
+            <View style={{...styles.posterWrap, width, height}}>
                 <Image source={{uri}} style={styles.posterImage} />
             </View>
         </TouchableOpacity>
@@ -27,7 +27,7 @@ export const MoviePoster = ({movie, height = 400, width = 280, marginHorizontal 
 
 const styles = StyleSheet.create({
     posterWrap: {
-        backgroundColor: '#fff',
+        backgroundColor: themeColors.dominant,
         borderRadius: 18,
         shadowColor: "#000",
         shadowOffset: {
