@@ -1,14 +1,24 @@
 import 'react-native-gesture-handler';
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { Navigation } from './src/navigation/Navigation';
+import { DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
 import { GradientProvider } from './src/context/GradientContext';
+import { TabNavigator } from './src/navigation/TabNavigator';
+import { themeColors } from './src/theme/global';
+
+const navTheme: Theme = {
+  dark: true,
+  colors: {
+    ...DefaultTheme.colors,
+    background: themeColors.dominant,
+    text: themeColors.white,
+  }
+}
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <GradientProvider>
-        <Navigation />  
+        <TabNavigator />  
       </GradientProvider>
     </NavigationContainer>
   )

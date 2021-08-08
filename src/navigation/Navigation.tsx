@@ -6,7 +6,7 @@ import { Movie } from '../interfaces/movieInterface';
 import { themeColors } from '../theme/global';
 
 export type RootStackParams = {
-  Home:   undefined;
+  HomeNested: undefined;
   Detail: Movie;
 }
 
@@ -20,7 +20,7 @@ export const Navigation = () => {
         backgroundColor: themeColors.dominant,
       }
     }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="HomeNested" component={HomeScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
     </Stack.Navigator>
   );

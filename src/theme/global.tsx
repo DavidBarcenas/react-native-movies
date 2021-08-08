@@ -13,4 +13,13 @@ export const globalStyles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap'
     },
+    screen : {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1
+    },
+    screenTitle: {
+        color: '#777',
+        fontSize: 30
+    }
 })
