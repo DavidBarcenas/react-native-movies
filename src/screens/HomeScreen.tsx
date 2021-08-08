@@ -39,7 +39,7 @@ export const HomeScreen = () => {
     return (
         <ScrollView>
             <GradientBackground>
-                <View style={{height: 413,paddingTop: top + 20}}>
+                <View style={{height: 420, paddingTop: top + 25}}>
                     <Carousel
                         data={nowPlaying}
                         renderItem={memoizedItem}

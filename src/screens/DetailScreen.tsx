@@ -1,21 +1,19 @@
 import React from 'react'
-import { Button, Text, View, Image, StyleSheet, Dimensions, TouchableOpacity, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Text, View, StyleSheet, Dimensions } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParams, Navigation } from '../navigation/Navigation';
+import { RootStackParams } from '../navigation/Navigation';
+
 import { useMovieDetail } from '../hooks/useMovieDetail';
-import LinearGradient from 'react-native-linear-gradient';
 import { movieImage } from '../api/movieAPI';
+import { CastSlider } from '../components/details/CastSlider';
 import { Backdrop } from '../components/details/Backdrop';
 import { Header } from '../components/details/Header';
-import { themeColors } from '../theme/global';
 import { Spinner } from '../components/Spinner';
-import { CastSlider } from '../components/details/CastSlider';
+import { themeColors } from '../theme/global';
 
 interface Props extends StackScreenProps<RootStackParams, 'Detail'> {}
 
 const {height, width} = Dimensions.get('screen')
-const bRadius = 90
 
 export const DetailScreen = ({route, navigation}: Props) => {
     const movie = route.params
