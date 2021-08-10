@@ -12,10 +12,10 @@ export const useMovies = () => {
     })
     
     const getMovies = async () => {
-        const nowPlaying = movieAPI.get<MovieResponse>('/now_playing')
-        const popular    = movieAPI.get<MovieResponse>('/popular')
-        const topRated   = movieAPI.get<MovieResponse>('/top_rated')
-        const upcoming   = movieAPI.get<MovieResponse>('/upcoming')
+        const nowPlaying = movieAPI.get<MovieResponse>('/movie/now_playing')
+        const popular    = movieAPI.get<MovieResponse>('/movie/popular')
+        const topRated   = movieAPI.get<MovieResponse>('/movie/top_rated')
+        const upcoming   = movieAPI.get<MovieResponse>('/movie/upcoming')
 
         await Promise.all([nowPlaying, popular, topRated, upcoming])
             .then(resp => {

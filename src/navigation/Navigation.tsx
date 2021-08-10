@@ -28,7 +28,7 @@ export const Navigation = () => {
       <Stack.Screen 
         name="Actor" 
         options={({ route }) => ({ 
-          title: '',
+          title: route.params.name,
           headerShown: true,
           headerTitleAlign: 'center',
           headerStyle: {
