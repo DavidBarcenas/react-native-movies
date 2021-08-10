@@ -24,7 +24,7 @@ export const ActorItem = ({image, actor, size}: ActorProps) => {
                     }} 
                 />
             </TouchableOpacity>
-            <Text style={styles.itemText}>{actor.name}</Text>
+            <Text style={styles.itemText}>{actor.character}</Text>
         </View>
     )
 }

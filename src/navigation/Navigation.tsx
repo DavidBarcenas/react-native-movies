@@ -5,10 +5,11 @@ import { DetailScreen } from '../screens/DetailScreen';
 import { ActorScreen } from '../screens/ActorScreen';
 import { Movie } from '../interfaces/movieInterface';
 import { themeColors } from '../theme/global';
+import { Cast } from '../interfaces/creditsInterface';
 
 export type RootStackParams = {
   HomeNested: undefined;
-  Actor: undefined;
+  Actor: Cast;
   Detail: Movie;
 }
 
@@ -24,7 +25,18 @@ export const Navigation = () => {
     }}>
       <Stack.Screen name="HomeNested" component={HomeScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
-      <Stack.Screen name="Actor" component={ActorScreen} />
+      <Stack.Screen 
+        name="Actor" 
+        options={({ route }) => ({ 
+          title: '',
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: themeColors.dominant
+          },
+        })}
+        component={ActorScreen} 
+      />
     </Stack.Navigator>
   );
 }
